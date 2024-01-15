@@ -1,7 +1,5 @@
 import type { Config, Context } from "@netlify/functions"
 import Airtable from "airtable";
-const dotenv = require('dotenv');
-dotenv.config();
 
 export type AirtableRecord = {
   id: string;
@@ -9,6 +7,8 @@ export type AirtableRecord = {
 }
 
 export default async (event: Request, context: Context) => {
+  const dotenv = require('dotenv');
+  dotenv.config();
   const { base, table, view } = context.params;
   const [ baseDecode, tableDecode, viewDecode ] = [ decodeURIComponent(base), decodeURIComponent(table), decodeURIComponent(view) ];
   const airtable = new Airtable({ apiKey: process.env.AIRTABLE_TEST_KEY }).base(baseDecode);
