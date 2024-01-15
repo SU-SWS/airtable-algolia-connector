@@ -5,7 +5,9 @@
   "main": "index.js",
   "scripts": {
     "vault": "netlify-plugin-vault-variables",
-    "vault:local": "NODE_ENV=development netlify-plugin-vault-variables"
+    "vault:local": "NODE_ENV=development netlify-plugin-vault-variables",
+    "lint": "eslint \"netlify/**/*.{ts,tsx,js,jsx,mts}\"",
+    "lint:fix": "eslint \"netlify/**/*.{ts,tsx,js,jsx,mts}\" --quiet --fix"
   },
   "repository": {
     "type": "git",
@@ -29,6 +31,11 @@
   },
   "devDependencies": {
     "@types/node": "^20.11.2",
+    "@typescript-eslint/eslint-plugin": "^6.19.0",
+    "@typescript-eslint/parser": "^6.19.0",
+    "eslint": "^8.56.0",
+    "eslint-config-airbnb": "^19.0.4",
+    "eslint-config-standard": "^17.1.0",
     "typescript": "^5.3.3"
   }
 }
