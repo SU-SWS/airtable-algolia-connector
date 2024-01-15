@@ -1,5 +1,7 @@
 import type { Handler } from "@netlify/functions"
 import Airtable, { Record } from "airtable";
+const dotenv = require('dotenv');
+dotenv.config();
 
 export type AirtableRecord = {
   id: string;
