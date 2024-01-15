@@ -6,6 +6,7 @@
   "author": "Stanford Web Services",
   "license": "ISC",
   "dependencies": {
-    "@netlify/functions": "^2.4.1"
+    "@netlify/functions": "^2.4.1",
+    "airtable": "^0.12.2"
   }
 }
