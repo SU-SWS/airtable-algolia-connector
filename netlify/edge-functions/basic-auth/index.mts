@@ -4,6 +4,7 @@ import type { Config, Context } from "@netlify/edge-functions";
 export default async (request: Request, context: Context) => {
 
   const { headers } = request;
+  console.log('Edge Headers', headers);
   const authheads = headers.get('authorization');
 
   // Validate basic auth credentials.
