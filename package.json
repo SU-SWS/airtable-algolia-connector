@@ -24,7 +24,7 @@
     "@netlify/functions": "^2.4.1",
     "airtable": "^0.12.2",
     "dotenv": "^16.3.1",
-    "netlify-plugin-vault-variables": "^1.0.7"
+    "netlify-plugin-vault-variables": "SU-SWS/netlify-plugin-vault-variables#edge"
   },
   "optionalDependencies": {
     "netlify-cli": "^17.14.0"
