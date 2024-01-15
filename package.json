@@ -4,7 +4,8 @@
   "description": "A proxy website to allow Algolia's no-code connector to talk to Airtable's API.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "vault": "netlify-plugin-vault-variables",
+    "vault:local": "NODE_ENV=development netlify-plugin-vault-variables"
   },
   "repository": {
     "type": "git",
@@ -21,5 +22,9 @@
   },
   "optionalDependencies": {
     "netlify-cli": "^17.14.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.11.2",
+    "typescript": "^5.3.3"
   }
 }

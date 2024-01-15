@@ -1,0 +1,11 @@
+{
+  "name": "proxy",
+  "version": "1.0.0",
+  "description": "Airtable / Algolia Proxy Connector",
+  "main": "proxy.ts",
+  "author": "Stanford Web Services",
+  "license": "ISC",
+  "dependencies": {
+    "@netlify/functions": "^2.4.1"
+  }
+}
