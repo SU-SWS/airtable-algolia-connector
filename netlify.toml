@@ -32,11 +32,3 @@
     X-Robots-Tag = "noindex, nofollow"
     X-Frame-Options = "DENY"
 
-# REWRITES
-# ##############################################################################
-
-# API proxy rewrite for netlify functions
-[[redirects]]
-  from = "/api/*"
-  to = "/.netlify/functions/:splat"
-  status = 200
