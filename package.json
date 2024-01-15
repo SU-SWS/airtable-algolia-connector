@@ -18,6 +18,9 @@
   },
   "homepage": "https://github.com/SU-SWS/airtable-algolia-connector#readme",
   "dependencies": {
+    "@netlify/edge-functions": "^2.3.0",
+    "@netlify/functions": "^2.4.1",
+    "airtable": "^0.12.2",
     "netlify-plugin-vault-variables": "^1.0.7"
   },
   "optionalDependencies": {
