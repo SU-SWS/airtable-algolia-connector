@@ -1,0 +1,25 @@
+{
+  "name": "airtable-algolia-connector",
+  "version": "1.0.0",
+  "description": "A proxy website to allow Algolia's no-code connector to talk to Airtable's API.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SU-SWS/airtable-algolia-connector.git"
+  },
+  "author": "Stanford Web Services",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/SU-SWS/airtable-algolia-connector/issues"
+  },
+  "homepage": "https://github.com/SU-SWS/airtable-algolia-connector#readme",
+  "dependencies": {
+    "netlify-plugin-vault-variables": "^1.0.7"
+  },
+  "optionalDependencies": {
+    "netlify-cli": "^17.14.0"
+  }
+}

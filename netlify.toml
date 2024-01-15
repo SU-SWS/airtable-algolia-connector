@@ -1,0 +1,32 @@
+# BUILD Settings:
+# ##############################################################################
+[build]
+  command = ""
+  publish = "public"
+  functions = "functions"
+
+# PLUGINS
+# ##############################################################################
+[[plugins]]
+  package = "netlify-plugin-vault-variables"
+  [plugins.inputs]
+    endpoint = 'https://vault.stanford.edu'
+    # Order doesn't matter here as these will be fetch asyncronously. Try not to have dupes.
+    secrets = ['secret/data/projects/uit-webservices/algolia']
+    # Set which environment variables to use for the approle login
+    secretId = 'VAULT_SECRET_ID'
+    roleId = 'VAULT_ROLE_ID'
+
+# HEADERS
+# ##############################################################################
+[[headers]]
+  for = "/*"
+  [headers.values]
+    Access-Control-Allow-Origin = "*"
+    Content-Security-Policy = "form-action https:"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "origin-when-cross-origin"
+    Strict-Transport-Security = "max-age=2592000"
+    Permissions-Policy = "vibrate=(), geolocation=(self), midi=(), notifications=(), push=(), microphone=(), camera=(), magnetometer=(), gyroscope=(), speaker=()"
+    X-Robots-Tag = "noindex, nofollow"
+    X-Frame-Options = "DENY"
