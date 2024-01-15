@@ -2,7 +2,7 @@
   "name": "proxy",
   "version": "1.0.0",
   "description": "Airtable / Algolia Proxy Connector",
-  "main": "proxy.ts",
+  "main": "index.mts",
   "author": "Stanford Web Services",
   "license": "ISC",
   "dependencies": {
