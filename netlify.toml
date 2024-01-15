@@ -3,7 +3,8 @@
 [build]
   command = ""
   publish = "public"
-  functions = "functions"
+  functions = "netlify/functions"
+  edge_functions = "netlify/edge-functions"
 
 # PLUGINS
 # ##############################################################################
