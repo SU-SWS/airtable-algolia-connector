@@ -18,7 +18,9 @@ export default async (event: Request, context: Context) => {
     decodeURIComponent(table),
   ];
   const airtable = new Airtable({ apiKey: process.env[`${algoliaIDDecode}_PAC`] }).base(baseDecode);
-  const airtableConfig = {};
+  const airtableConfig = {
+    maxRecords: 5000,
+  };
   const data:AirtableRecord[] = [];
 
   // Optional view parameter.
