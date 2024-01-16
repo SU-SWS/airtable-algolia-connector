@@ -54,7 +54,7 @@ export default async (event: Request, context: Context) => {
 
 export const config: Config = {
   path: [
+    '/api/proxy/:algoliaID/:base/:table',
     '/api/proxy/:algoliaID/:base/:table/:view',
-    '/api/proxy/:algoliaID/:base/:table'
   ],
 };
