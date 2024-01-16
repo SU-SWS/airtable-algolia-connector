@@ -7,9 +7,8 @@ export default async (request: Request, context: Context) => {
   // Validate basic auth credentials.
   if (authheads) {
     const [type, credentials] = authheads.split(' ');
-    const { algoliaID } = context.params;
-    const username = Netlify.env.get(`${algoliaID}_USR`);
-    const password = Netlify.env.get(`${algoliaID}_PWD`);
+    const username = Netlify.env.get(`BASIC_USER`);
+    const password = Netlify.env.get(`BASIC_PASS`);
 
     // base64 encode the username and password
     const encoded = btoa(`${username}:${password}`);
