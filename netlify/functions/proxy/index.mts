@@ -10,21 +10,24 @@ export type AirtableRecord = {
 export default async (event: Request, context: Context) => {
   dotenv.config();
   const {
-    algoliaID, base, table, view,
+    algoliaID, base, table,
   } = context.params;
-  const [algoliaIDDecode, baseDecode, tableDecode, viewDecode] = [
+  const [algoliaIDDecode, baseDecode, tableDecode] = [
     decodeURIComponent(algoliaID),
     decodeURIComponent(base),
     decodeURIComponent(table),
-    decodeURIComponent(view),
   ];
   const airtable = new Airtable({ apiKey: process.env[`${algoliaIDDecode}_PAC`] }).base(baseDecode);
+  const airtableConfig = {};
   const data:AirtableRecord[] = [];
 
+  // Optional view parameter.
+  if (context.params.view) {
+    airtableConfig['view'] = decodeURIComponent(context.params.view);
+  }
+
   try {
-    await airtable(tableDecode).select({
-      view: viewDecode,
-    }).eachPage((records, fetchNextPage) => {
+    await airtable(tableDecode).select(airtableConfig).eachPage((records, fetchNextPage) => {
       records.forEach((record) => {
         const keys = Object.keys(record.fields);
         const vals = Object.values(record.fields);
@@ -50,5 +53,8 @@ export default async (event: Request, context: Context) => {
 };
 
 export const config: Config = {
-  path: '/api/proxy/:algoliaID/:base/:table/:view',
+  path: [
+    '/api/proxy/:algoliaID/:base/:table/:view',
+    '/api/proxy/:algoliaID/:base/:table'
+  ],
 };
