@@ -12,6 +12,9 @@ Airtable's documenation and information on each of the bases you have access to 
 
 Connector documentation and requirements can be found in [Algolia's documentation](https://www.algolia.com/doc/guides/sending-and-managing-data/send-and-update-your-data/how-to/importing-with-no-code-connectors/).
 
+# Documentation
+
+You can find the [detailed documentation](https://docs.google.com/document/d/1rp7qOoFCt2g8Y3X0pFND1IoUirQtVvK4QrVbdV753Kc) on our drive.
 
 ## Environment variable set up and installation
 
