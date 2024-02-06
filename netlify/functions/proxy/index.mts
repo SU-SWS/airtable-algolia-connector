@@ -7,6 +7,11 @@ export type AirtableRecord = {
   [key: string]: any;
 }
 
+export type AirtableConfig = {
+  maxRecords: number;
+  view?: string;
+}
+
 export default async (event: Request, context: Context) => {
   dotenv.config();
   const {
@@ -18,14 +23,14 @@ export default async (event: Request, context: Context) => {
     decodeURIComponent(table),
   ];
   const airtable = new Airtable({ apiKey: process.env[`${algoliaIDDecode}_PAC`] }).base(baseDecode);
-  const airtableConfig = {
-    maxRecords: 5000,
+  const airtableConfig:AirtableConfig = {
+    maxRecords: 5000, // Current limit for Airtable API due to 10s function timeout and 500/req/second limit.
   };
   const data:AirtableRecord[] = [];
 
   // Optional view parameter.
   if (context.params.view) {
-    airtableConfig['view'] = decodeURIComponent(context.params.view);
+    airtableConfig.view = decodeURIComponent(context.params.view);
   }
 
   try {
@@ -35,6 +40,9 @@ export default async (event: Request, context: Context) => {
         const vals = Object.values(record.fields);
         const saniKeys = keys.map((key) => key.replace(/\s|-/g, '_').toLowerCase());
         const saniObject = Object.fromEntries(saniKeys.map((_, i) => [saniKeys[i], vals[i]]));
+        delete saniObject.last_modified_by; // The item contains ids, emails, and names.
+        delete saniObject.objectID; // Duplicate of id.
+        delete saniObject.record_id; // Duplicate of id.
         const rec = {
           id: record.getId(),
           ...saniObject,
